@@ -10,7 +10,7 @@ Usage
 To install sequelize-sync, simply do:
 
 ```
-    (sudo) npm install -g sync
+    (sudo) npm install -g sequelize-sync
 ```
 
 That's pretty much it.  You need to point it to a node module that exports a connection
