@@ -1,0 +1,42 @@
+#!/usr/bin/env node
+
+/* ~ Deps ~ */
+
+var program = require('commander');
+var sync = require('..');
+var pkg = require('../package.json');
+
+/* ~ Locals ~ */
+
+program
+  .version(pkg.version)
+  .option('-s, --sequelize <path>', 'Path to module that exports sequelize bootstrapped with models')
+  .option('-d, --dump-sql', 'Dump the SQL that sequelize will use when syncing')
+  .option('-f, --force', 'Force the synchronization (see sequelizeModel.sync({ force: true })')
+  .option('-m, --models', 'Provide model names to sync (separate by comma)')
+  .option('-x, --drop', 'Drop the database')
+  .parse(process.argv);
+
+var sequelize = require(process.cwd() + '/' + program.sequelize);
+var opts = {};
+opts.dumpSql = program.dumpSql && console.log;
+opts.force = program.force;
+opts.models = program.models && program.models.split(',');
+opts.drop = program.drop;
+
+/**
+ * Error handler
+ */
+function onError(err) {
+  console.error(err);
+  process.exit(1);
+}
+
+sync(sequelize, opts, function(err, keys) {
+  if (err) {
+    return onError(err);
+  }
+
+  console.log('Finished syncing ' + keys.length + ' models.');
+  process.exit(0);
+});

@@ -1,0 +1,40 @@
+{
+  "name": "sequelize-sync",
+  "version": "0.0.0",
+  "description": "Bash script to sync all sequelize models into the database, with force option",
+  "main": "./lib/sequelize-sync",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --require should --growl --timeout 5000 test/**/*.test.js"
+  },
+  "bin": {
+    "sequelize-sync": "./bin/sequelize-sync"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rfink/sequelize-sync.git"
+  },
+  "keywords": [
+    "sequelize",
+    "sync",
+    "database",
+    "mysql",
+    "postgres",
+    "sqlite",
+    "sql"
+  ],
+  "author": "Ryan Fink <ryanjfink@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rfink/sequelize-sync/issues"
+  },
+  "homepage": "https://github.com/rfink/sequelize-sync",
+  "dependencies": {
+    "commander": "^2.2.0"
+  },
+  "devDependencies": {
+    "mocha": "^1.20.1",
+    "should": "^4.0.4",
+    "sequelize": "^1.7.9",
+    "sqlite3": "^2.2.3"
+  }
+}
