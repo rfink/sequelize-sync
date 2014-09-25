@@ -26,13 +26,13 @@ describe('Sequelize-sync test suite', function() {
       should.exist(res);
       res.should.have.length(3);
 
-      sequelize.model('TestTable1')
+      sequelize.model('testTable1')
         .findAll()
-        .success(function(models) {
+        .then(function(models) {
           models.should.have.length(0);
-          sequelize.model('TestTable2')
+          sequelize.model('testTable2')
             .findAll()
-            .success(function(models) {
+            .then(function(models) {
               models.should.have.length(0);
               opts.drop = true;
               sync(sequelize, opts, function(err, res) {
@@ -41,9 +41,9 @@ describe('Sequelize-sync test suite', function() {
                 return done();
               });
             })
-            .error(onError);
+            .catch(onError);
         })
-        .error(onError);
+        .catch(onError);
     });
   });
 
