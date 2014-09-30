@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/env node --harmony
 
 /* ~ Deps ~ */
 
@@ -13,7 +13,7 @@ program
   .option('-s, --sequelize <path>', 'Path to module that exports sequelize bootstrapped with models')
   .option('-d, --dump-sql', 'Dump the SQL that sequelize will use when syncing')
   .option('-f, --force', 'Force the synchronization (see sequelizeModel.sync({ force: true })')
-  .option('-m, --models', 'Provide model names to sync (separate by comma)')
+  .option('-m, --models <models>', 'Provide model names to sync (separate by comma)')
   .option('-x, --drop', 'Drop the database')
   .parse(process.argv);
 
