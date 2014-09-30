@@ -1,6 +1,6 @@
 {
   "name": "sequelize-sync",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Bash script to sync all sequelize models into the database, with force option",
   "main": "./lib/sequelize-sync",
   "scripts": {
